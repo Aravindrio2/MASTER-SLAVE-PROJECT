@@ -63,4 +63,20 @@ pipeline {
         }
     }
 
-   
+    post {
+        success {
+            emailext(
+                subject: '✅ Jenkins Job Success',
+                body: 'The pipeline has completed successfully!',
+                to: 'aravindjenkin2@gmail.com'
+            )
+        }
+        failure {
+            emailext(
+                subject: '❌ Jenkins Job Failed',
+                body: 'The pipeline has failed!',
+                to: 'aravindjenkin2@gmail.com'
+            )
+        }
+    }
+}
